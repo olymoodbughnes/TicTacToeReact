@@ -15,9 +15,9 @@ export default function GameScreen({ player1, player2 }) {
     const [currPlayer, setCurrentPlayer] = useState(player1);
     const [currSymbol, setCurrentSymbol] = useState();
 
-    const handleClick = () => {
+    const handleClick = (boxKey) => {
 
-        if (!clicked.b1) {
+        if (!clicked.b1 && boxKey === 'b1') {
             if (currPlayer === player1) {
 
                 setCurrentSymbol(cross);
@@ -42,11 +42,7 @@ export default function GameScreen({ player1, player2 }) {
                 b1: true,
             }));
 
-
-
         }
-
-
     };
 
 
@@ -55,7 +51,7 @@ export default function GameScreen({ player1, player2 }) {
             {/*TOP ROW*/}
             <article className='row-one'>
 
-                <section className='sq top-left' onClick={handleClick}>{clicked.b1 ? <div>{currSymbol}</div> : null}</section>
+                <section className='sq top-left' onClick={() => handleClick('b1', currSymbol)}>{clicked.b1 ? <div>{currSymbol}</div> : null}</section>
                 <section className='sq top-mid' onClick={handleClick}>{clicked.b2 ? <div>{currSymbol}</div> : null}</section>
                 <section className='sq top-right'>{symbolMap.b1}</section>
             </article>
