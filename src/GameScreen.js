@@ -10,33 +10,40 @@ export default function GameScreen({ player1, player2 }) {
 
 
 
-    const [clicked, setClicked] = useState(false);
-
+    const [clicked, setClicked] = useState({ b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false, b9: false });
+    const [symbolMap, setSymbolMap] = useState({ b1: ' ', b2: ' ', b3: ' ', b4: ' ', b5: ' ', b6: ' ', b7: ' ', b8: ' ', b9: ' ' });
     const [currPlayer, setCurrentPlayer] = useState(player1);
-    const [currSymbol, setCurrentSymbol] = useState(cross);
-    const [currSymbol2, setCurrentSymbol2] = useState(cross);
-    const [currSymbol3, setCurrentSymbol3] = useState(cross);
-    const [currSymbol4, setCurrentSymbol4] = useState(cross);
-    const [currSymbol5, setCurrentSymbol5] = useState(cross);
-    const [currSymbol6, setCurrentSymbol6] = useState(cross);
-    const [currSymbol7, setCurrentSymbol7] = useState(cross);
-    const [currSymbol8, setCurrentSymbol8] = useState(cross);
-    const [currSymbol9, setCurrentSymbol9] = useState(cross);
+    const [currSymbol, setCurrentSymbol] = useState();
+
     const handleClick = () => {
 
-        if (!clicked) {
+        if (!clicked.b1) {
             if (currPlayer === player1) {
 
                 setCurrentSymbol(cross);
                 setCurrentPlayer(player2);
+                setSymbolMap((oldState) => ({
+                    ...oldState,
+                    b1: cross,
+                }));
 
             } else if (currPlayer === player2) {
 
                 setCurrentSymbol(circle);
                 setCurrentPlayer(player1);
+                setSymbolMap((oldState) => ({
+                    ...oldState,
+                    b1: circle,
+                }));
             }
 
-            setClicked(true);
+            setClicked((oldState) => ({
+                ...oldState,
+                b1: true,
+            }));
+
+
+
         }
 
 
@@ -47,9 +54,10 @@ export default function GameScreen({ player1, player2 }) {
         <div className='ttt-table'>
             {/*TOP ROW*/}
             <article className='row-one'>
-                <section className='sq top-left' onClick={handleClick}>{clicked ? <div>{currSymbol}</div> : null}</section>
-                <section className='sq top-mid' onClick={handleClick}>{clicked ? <div>{currSymbol}</div> : null}</section>
-                <section className='sq top-right'>allo m7</section>
+
+                <section className='sq top-left' onClick={handleClick}>{clicked.b1 ? <div>{currSymbol}</div> : null}</section>
+                <section className='sq top-mid' onClick={handleClick}>{clicked.b2 ? <div>{currSymbol}</div> : null}</section>
+                <section className='sq top-right'>{symbolMap.b1}</section>
             </article>
             {/*MID ROW*/}
             <article className='row-two'>
