@@ -1,0 +1,43 @@
+.ttt-table{
+
+display: grid;
+
+grid-template-rows: auto auto auto;
+gap: 1%;
+}
+
+.row-one{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 1%;
+    padding-top: 1%;
+
+}
+
+.row-two{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 1%;
+}
+
+.row-three{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 1%;
+}
+
+.sq{
+background-color: rgba(0, 0, 0, 0.295);
+backdrop-filter: blur(10px);
+border-radius: 5px;
+
+height: 13rem;
+width: 13rem;
+
+}

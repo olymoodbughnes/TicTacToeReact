@@ -33,10 +33,10 @@ function App() {
           </div>
           <div className='game-content'>
             <div className='content-display'>
-              <div className='buffer'></div>
+
 
               {!clicked ? <SplashScreen onClick={handleClick} /> : <GameScreen />}
-              <div className='buffer'></div>
+
             </div>
           </div>
         </div>
