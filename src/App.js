@@ -1,7 +1,23 @@
 import SplashScreen from './SplashScreen';
+import GameScreen from './SplashScreen';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+
+
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+
+
+  };
+
+
+
+
+
   return (
     <div className="App">
       <header className="header">
@@ -18,7 +34,8 @@ function App() {
           <div className='game-content'>
             <div className='content-display'>
               <div className='buffer'></div>
-              <SplashScreen />
+
+              {!clicked ? <SplashScreen onClick={handleClick} /> : <GameScreen />}
               <div className='buffer'></div>
             </div>
           </div>

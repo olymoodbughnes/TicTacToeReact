@@ -1,7 +1,43 @@
 .SplashScreen{
+    display: grid;
+    grid-template-rows: 10% 5%  ;
+    gap: 10%;
+    min-height: 100vh;
+    text-align: center;
+
 
 }
+
+
+.intro{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      -225deg,
+      #1e5474 0%,
+      #1f3f64 29%,
+      #636634 67%,
+      #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+        
+}
  
+.intro.title-name{
+    font-size: 3rem;
+
+
+}
 
  
  @keyframes textclip {
@@ -11,24 +47,6 @@
 
    /*Code used from: https://codepen.io/alvarotrigo/pen/PoKMyNO
    
-       text-transform: uppercase;
-   background-image: linear-gradient(
-     -225deg,
-     #1e5474 0%,
-     #1f3f64 29%,
-     #636634 67%,
-     #fff800 100%
-   );
-   background-size: auto auto;
-   background-clip: border-box;
-   background-size: 200% auto;
-   color: #fff;
-   background-clip: text;
-   text-fill-color: transparent;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   animation: textclip 2s linear infinite;
-   display: inline-block;
-       font-size: 190px;*/
+       */
    
  }
