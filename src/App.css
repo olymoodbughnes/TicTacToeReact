@@ -8,15 +8,43 @@
 background-color: #1D5D9B;
 min-height: 100vh;
 
+
+
+}
+
+.options{
+  display: grid;
+  grid-template-rows: auto 5% 5% auto ;
+  gap: 10%;
+  min-height: 100vh;
+  text-align: center;
 }
 
 
+.options li{
+
+  list-style: none;
+  
+}
+
+.options-action{
+
+background-color: #F4D160;
+
+border-radius: 15px;
+
+}
+
+.extra-action{
+  background-color: #4b401e;
+
+}
 
 .main-content{
 
   display: grid;
   grid-template-columns: 10% auto;
-  color: red;
+  color: rgb(255, 255, 255);
 
 }
 
