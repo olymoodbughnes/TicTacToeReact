@@ -7,7 +7,8 @@ function App() {
 
 
   const [clicked, setClicked] = useState(false);
-
+  const [player1, setPlayer1] = useState('uno');
+  const [player2, setPlayer2] = useState('dos');
   const handleClick = () => {
     setClicked(true);
 
@@ -35,7 +36,7 @@ function App() {
             <div className='content-display'>
 
 
-              {!clicked ? <SplashScreen onClick={handleClick} /> : <GameScreen />}
+              {!clicked ? <SplashScreen onClick={handleClick} /> : <GameScreen player1={player1} player2={player2} />}
 
             </div>
           </div>
