@@ -48,3 +48,19 @@ border-radius: 15px;
 
 }
 
+/*MAIN CONTENT*/
+
+.game-content{
+
+text-align: center;
+
+
+}
+
+.content-display{
+  display: grid;
+  grid-template-rows: auto 20% auto  ;
+  gap: 10%;
+  min-height: 100vh;
+  text-align: center;
+}

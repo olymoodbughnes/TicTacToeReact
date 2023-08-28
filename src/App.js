@@ -16,8 +16,11 @@ function App() {
             </article>
           </div>
           <div className='game-content'>
-            <SplashScreen />
-
+            <div className='content-display'>
+              <div className='buffer'></div>
+              <SplashScreen />
+              <div className='buffer'></div>
+            </div>
           </div>
         </div>
 
