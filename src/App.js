@@ -1,5 +1,5 @@
 import SplashScreen from './SplashScreen';
-import GameScreen from './SplashScreen';
+import GameScreen from './GameScreen';
 import './App.css';
 import React, { useState } from 'react';
 
