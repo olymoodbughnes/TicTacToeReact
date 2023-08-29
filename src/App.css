@@ -1,11 +1,11 @@
 .App {
- background-color: #75C2F6;
+ background-color: #93B1A6;
  min-height: 100vh;
 }
 
 .navbar{
 
-background-color: #1D5D9B;
+background-color: #040D12;
 min-height: 100vh;
 
 
@@ -29,7 +29,7 @@ min-height: 100vh;
 
 .options-action{
 
-background-color: #F4D160;
+background-color: #183D3D;
 
 border-radius: 15px;
 
@@ -63,4 +63,11 @@ text-align: center;
   gap: 10%;
   min-height: 100vh;
   text-align: center;
+}
+
+.winner-show{
+
+font-size: 5rem;
+
+
 }

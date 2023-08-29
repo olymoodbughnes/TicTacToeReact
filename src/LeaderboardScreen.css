@@ -1,0 +1,31 @@
+
+.button {
+    margin-top: 20rem;
+    color: #93B1A6;
+    background-color: #040D12;
+    font-size: 8rem;
+    border-radius: 9px;
+    border-style:none;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover{
+
+    background-color: #183D3D;
+
+
+}
+
+
+.leaderboard{
+    
+    
+color: #183D3D;
+font-size: 2rem;
+font-weight: 900;
+
+
+    
+    }

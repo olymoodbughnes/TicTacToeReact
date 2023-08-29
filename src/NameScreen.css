@@ -1,0 +1,74 @@
+.name-input1{
+
+background-color: #266161;
+font-size: 3rem;
+border-radius: 9px;
+border-style:none;
+backdrop-filter: blur(10px);
+
+
+}
+
+.name-input2{
+
+    background-color: #183D3D;
+    font-size: 3rem;
+    border-radius: 2px;
+    border-style:none;
+    backdrop-filter: blur(10px);
+    
+    
+    }
+
+.button {
+    margin-top: 20rem;
+    color: #93B1A6;
+    background-color: #040D12;
+    font-size: 8rem;
+    border-radius: 9px;
+    border-style:none;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover{
+
+    background-color: #183D3D;
+
+
+}
+
+.player1-name-show{
+
+    color: #266161;
+
+    
+}
+.player2-name-show{
+
+    color: #183D3D;
+
+   
+}
+
+.player1-name-show, .player2-name-show, .winner-show{
+
+    font-size: 6rem;
+font-weight: 900;
+
+}
+
+.winner-show{
+
+color: #040D12;
+
+}
+
+.winner-show:hover{
+
+
+    
+   color: #183D3D;
+   cursor: pointer;
+}

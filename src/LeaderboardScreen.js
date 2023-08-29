@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './LeaderboardScreen.css';
 export default function LeaderboardScreen({ winnerList, winner, onReset }) {
 
 
@@ -10,16 +10,16 @@ export default function LeaderboardScreen({ winnerList, winner, onReset }) {
     return (
         <>
             <div>
-                {winner}
+                Leaderboard
                 {top5.map(player => (
-                    <div key={player.id}>
-                        <p>ID: {player.id} Name: {player.name} Score: {player.score} wins: {player.wins} losses: {player.losses} draws: {player.draws}</p>
+                    <div className="leaderboard" key={player.id}>
+                        Name: {player.name} Score: {player.score} wins: {player.wins} losses: {player.losses} draws: {player.draws}
 
                     </div>
                 ))}
-
+                <button className='button' onClick={onReset}>Start Again</button>
             </div>
-            <button onClick={onReset}></button>
+
         </>
     )
 }

@@ -178,7 +178,7 @@ function App() {
               <section className='Logo'>IMG</section>
               <section className='options-action'>Options</section>
               <section className='options-action'>Help</section>
-              <section className='extra-action'>empty space</section>
+              <section ></section>
             </article>
           </div>
           <div className='game-content'>
