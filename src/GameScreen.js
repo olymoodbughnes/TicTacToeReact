@@ -285,36 +285,43 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
         const bm = symbolMap.b8;
         const br = symbolMap.b9;
         var winningPlayer = '';
+        var losingPlayer = '';
         const noWinner = 'DRAW';
 
         if (currPlayer === player1) {
             winningPlayer = player2;
+            losingPlayer = player1;
         } else {
 
             winningPlayer = player1;
-
+            losingPlayer = player2;
         }
         if ((tl === 'x' && tm === 'x' && tr === 'x') || (tl === 'o' && tm === 'o' && tr === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
         }
         else if ((ml === 'x' && mm === 'x' && mr === 'x') || (ml === 'o' && mm === 'o' && mr === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
         }
         else if ((bl === 'x' && bm === 'x' && br === 'x') || (bl === 'o' && bm === 'o' && br === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
         }
         else if ((tl === 'x' && ml === 'x' && bl === 'x') || (tl === 'o' && ml === 'o' && bl === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
+
         } else if ((tm === 'x' && mm === 'x' && bm === 'x') || (tm === 'o' && mm === 'o' && bm === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
+
         } else if ((tr === 'x' && mr === 'x' && br === 'x') || (tr === 'o' && mr === 'o' && br === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
+
         } else if ((bl === 'x' && mm === 'x' && tr === 'x') || (bl === 'o' && mm === 'o' && tr === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
+
         } else if ((br === 'x' && mm === 'x' && tl === 'x') || (br === 'o' && mm === 'o' && tl === 'o')) {
-            onGameCompleted(winningPlayer);
+            onGameCompleted(winningPlayer, losingPlayer, false);
+
         } else if (allBoxesClicked) {
-            onGameCompleted(noWinner);
+            onGameCompleted(player1, player2, true);
         }
 
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 export default function NameScreen({ onNamesSet }) {
 
@@ -6,7 +6,6 @@ export default function NameScreen({ onNamesSet }) {
     const [player1Name, setPlayer1Name] = useState(true);
     const [player2Name, setPlayer2Name] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
-    const [bothNamesSet, setBothNamesSet] = useState(false);
     const [playerNames, setPlayerNames] = useState({ p1: '', p2: '' });
     const firstPlayerName = useRef();
     const secondPlayerName = useRef();
@@ -60,8 +59,3 @@ export default function NameScreen({ onNamesSet }) {
     )
 }
 
-
-/*    
-onNamesSet(playerNames.p1, 'PLayer 2');
-    
- */
