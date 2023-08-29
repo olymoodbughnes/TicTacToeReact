@@ -32,8 +32,17 @@ min-height: 100vh;
 background-color: #183D3D;
 
 border-radius: 15px;
-
+transition: 0.1s ease-in;
 }
+
+
+.options-action:hover{
+
+  background-color: #93B1A6;
+  
+  border-radius: 15px;
+  
+  }
 
 .extra-action{
   background-color: #4b401e;

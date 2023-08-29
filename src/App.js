@@ -3,9 +3,11 @@ import SplashScreen from './SplashScreen';
 import GameScreen from './GameScreen';
 import NameScreen from './NameScreen';
 import LeaderboardScreen from './LeaderboardScreen';
+import InstructionsScreen from './InstructionsScreen';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import HelpScreen from './HelpScreen';
 function App() {
 
 
@@ -16,6 +18,7 @@ function App() {
   const [showFanfare, setShowFanfare] = useState(false);
   const [leaderboard, setLeaderboard] = useState([]);
   const [showHelp, setShowHelp] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
   const [winner, setWinner] = useState(null);
   const [loser, setloser] = useState(null);
   const [isDraw, setsIsDraw] = useState(false);
@@ -177,7 +180,19 @@ function App() {
 
 
   }
+  const handleHelpInstructions = () => {
+    setShowInstructions(true);
 
+
+  }
+
+
+
+  const handleReturnHelp = () => {
+    setShowHelp(false);
+    setShowInstructions(false);
+
+  }
 
   return (
     <div className="App">
@@ -185,13 +200,17 @@ function App() {
         <div className="main-content">
           <div className='navbar'>
             <article className='options'>
-              <section className='Logo'>IMG</section>
+              <section className='Logo'>TICTACTOE</section>
               <section className='options-action' onClick={handleHelp}>Help</section>
+              <section className='options-action' onClick={handleHelpInstructions}>How to play</section>
               <section ></section>
             </article>
           </div>
           <div className='game-content'>
             <div className='content-display'>
+
+              {showHelp ? <HelpScreen returnToGame={handleReturnHelp} /> : null}
+              {showInstructions ? <InstructionsScreen returnToGame={handleReturnHelp} /> : null}
 
 
               {!clicked ? <SplashScreen onClick={handleClick} /> : null}

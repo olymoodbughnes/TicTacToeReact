@@ -9,15 +9,19 @@ export default function LeaderboardScreen({ winnerList, winner, onReset }) {
 
     return (
         <>
-            <div>
-                Leaderboard
-                {top5.map(player => (
-                    <div className="leaderboard" key={player.id}>
-                        Name: {player.name} Score: {player.score} wins: {player.wins} losses: {player.losses} draws: {player.draws}
+            <div className='col-structure'>
+                <div className='buffer'></div>
+                <div className='board-background'>
+                    Leaderboard
+                    {top5.map(player => (
+                        <div className="leaderboard" key={player.id}>
+                            Name: {player.name} <div className='score-highlight'>Score: {player.score}</div><div>wins: {player.wins} losses: {player.losses} draws: {player.draws}</div>
 
-                    </div>
-                ))}
-                <button className='button-restart' onClick={onReset}>Start Again</button>
+                        </div>
+                    ))}
+                    <button className='button-restart' onClick={onReset}>Start Again</button>
+                </div>
+                <div className='buffer'></div>
             </div>
 
         </>
