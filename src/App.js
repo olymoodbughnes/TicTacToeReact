@@ -15,9 +15,10 @@ function App() {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showFanfare, setShowFanfare] = useState(false);
   const [leaderboard, setLeaderboard] = useState([]);
+  const [showHelp, setShowHelp] = useState(false);
   const [winner, setWinner] = useState(null);
   const [loser, setloser] = useState(null);
-
+  const [isDraw, setsIsDraw] = useState(false);
 
   const [player1, setPlayer1] = useState('ref_a');
   const [player2, setPlayer2] = useState('ref_b');
@@ -35,6 +36,8 @@ function App() {
 
 
   }
+
+
 
   const handleResetClick = () => {
     setClicked(false);
@@ -144,6 +147,7 @@ function App() {
 
   const handleGameComplete = (winner, loser, draw) => {
     if (draw) {
+      setsIsDraw(true);
       setWinner(winner);
       setloser(loser);
       handleDrawGameEnd(winner, loser);
@@ -151,6 +155,7 @@ function App() {
       setShowFanfare(true);
       return;
     }
+    setsIsDraw(false);
     setWinner(winner);
     setloser(loser);
     handleGameEnd(winner, loser);
@@ -167,6 +172,11 @@ function App() {
   };
 
 
+  const handleHelp = () => {
+    setShowHelp(true);
+
+
+  }
 
 
   return (
@@ -176,8 +186,7 @@ function App() {
           <div className='navbar'>
             <article className='options'>
               <section className='Logo'>IMG</section>
-              <section className='options-action'>Options</section>
-              <section className='options-action'>Help</section>
+              <section className='options-action' onClick={handleHelp}>Help</section>
               <section ></section>
             </article>
           </div>
@@ -188,7 +197,7 @@ function App() {
               {!clicked ? <SplashScreen onClick={handleClick} /> : null}
               {showNameScreen ? <NameScreen onNamesSet={handleNamesSet} /> : null}
               {showGameScreen ? <GameScreen player1={player1} player2={player2} onGameCompleted={handleGameComplete} /> : null}
-              {showFanfare ? <FanfareScreen winner={winner} onFinish={handleShowLeaderBoard} /> : null}
+              {showFanfare ? <FanfareScreen winner={winner} isDraw={isDraw} onFinish={handleShowLeaderBoard} /> : null}
               {showLeaderboard ? <LeaderboardScreen winnerList={leaderboard} winner={winner} onReset={handleResetClick} /> : null}
             </div>
           </div>

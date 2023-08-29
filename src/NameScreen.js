@@ -54,9 +54,9 @@ export default function NameScreen({ onNamesSet }) {
         <>
 
             <div>
-                {player1Name ? <><input ref={firstPlayerName} type="text" className='name-input1'></input> <button className='button' onClick={handleClick}>Confirm Player Name</button> </> : null}
-                {player2Name ? <><input ref={secondPlayerName} type="text" className='name-input2'></input><button className='button' onClick={handleClick2}>Confirm Player Name</button></> : null}
-                {showConfirmation ? <><div className='player1-name-show'>{playerNames.p1}</div> vs <div className='player2-name-show'>{playerNames.p2}</div> <button className='button' onClick={handleClick3}>START GAME</button> </> : null}
+                {player1Name ? <><input ref={firstPlayerName} type="text" className='name-input1'></input> <button className='button-names' onClick={handleClick}>Confirm Player 1 Name</button></> : null}
+                {player2Name ? <><input ref={secondPlayerName} type="text" className='name-input2'></input> <button className='button-names' onClick={handleClick2}>Confirm Player 2 Name</button></> : null}
+                {showConfirmation ? <><div className='player1-name-show'>{playerNames.p1}</div> vs <div className='player2-name-show'>{playerNames.p2}</div> <button className='button-names' onClick={handleClick3}>START GAME</button> </> : null}
             </div>
             <div className='buffer'></div>
         </>

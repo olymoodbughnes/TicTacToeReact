@@ -330,28 +330,30 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
 
 
     return (
-        <div className='ttt-table'>
-            {/*TOP ROW*/}
-            <article className='row-one'>
+        <>
+            <div className='ttt-table'>
+                {/*TOP ROW*/}
+                <article className='row-one'>
+                    <section className='sq top-left' onClick={() => { handleClick('b1'); }} >{clicked.b1 ? <div>{symbolMap.b1}</div> : null}</section>
+                    <section className='sq top-mid' onClick={() => { handleClick('b2'); }} >{clicked.b2 ? <div>{symbolMap.b2}</div> : null}</section>
+                    <section className='sq top-right' onClick={() => { handleClick('b3'); }} >{clicked.b3 ? <div>{symbolMap.b3}</div> : null}</section>
+                </article>
+                {/*MID ROW*/}
+                <article className='row-two'>
+                    <section className='sq mid-left' onClick={() => { handleClick('b4'); }}>{clicked.b4 ? <div>{symbolMap.b4}</div> : null}</section>
+                    <section className='sq mid-mid' onClick={() => { handleClick('b5'); }} >{clicked.b5 ? <div>{symbolMap.b5}</div> : null}</section>
+                    <section className='sq mid-right' onClick={() => { handleClick('b6'); }} >{clicked.b6 ? <div>{symbolMap.b6}</div> : null}</section>
+                </article>
+                {/*BOTTOM ROW*/}
+                <article className='row-three'>
+                    <section className='sq bot-left' onClick={() => { handleClick('b7'); }} >{clicked.b7 ? <div>{symbolMap.b7}</div> : null}</section>
+                    <section className='sq bot-mid' onClick={() => { handleClick('b8'); }} >{clicked.b8 ? <div>{symbolMap.b8}</div> : null}</section>
+                    <section className='sq bot-right' onClick={() => { handleClick('b9'); }} >{clicked.b9 ? <div>{symbolMap.b9}</div> : null}</section>
+                </article>
+                <div className='morphing-text' ><span className='current-player' data-text={currPlayer} >{currPlayer}'s turn</span></div>
+            </div>
 
-
-                <section className='sq top-left' onClick={() => { handleClick('b1'); }} >{clicked.b1 ? <div>{symbolMap.b1}</div> : null}</section>
-                <section className='sq top-mid' onClick={() => { handleClick('b2'); }} >{clicked.b2 ? <div>{symbolMap.b2}</div> : null}</section>
-                <section className='sq top-right' onClick={() => { handleClick('b3'); }} >{clicked.b3 ? <div>{symbolMap.b3}</div> : null}</section>
-            </article>
-            {/*MID ROW*/}
-            <article className='row-two'>
-                <section className='sq mid-left' onClick={() => { handleClick('b4'); }}>{clicked.b4 ? <div>{symbolMap.b4}</div> : null}</section>
-                <section className='sq mid-mid' onClick={() => { handleClick('b5'); }} >{clicked.b5 ? <div>{symbolMap.b5}</div> : null}</section>
-                <section className='sq mid-right' onClick={() => { handleClick('b6'); }} >{clicked.b6 ? <div>{symbolMap.b6}</div> : null}</section>
-            </article>
-            {/*BOTTOM ROW*/}
-            <article className='row-three'>
-                <section className='sq bot-left' onClick={() => { handleClick('b7'); }} >{clicked.b7 ? <div>{symbolMap.b7}</div> : null}</section>
-                <section className='sq bot-mid' onClick={() => { handleClick('b8'); }} >{clicked.b8 ? <div>{symbolMap.b8}</div> : null}</section>
-                <section className='sq bot-right' onClick={() => { handleClick('b9'); }} >{clicked.b9 ? <div>{symbolMap.b9}</div> : null}</section>
-            </article>
-        </div>
+        </>
     )
 }
 

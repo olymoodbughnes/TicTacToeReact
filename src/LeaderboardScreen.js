@@ -17,7 +17,7 @@ export default function LeaderboardScreen({ winnerList, winner, onReset }) {
 
                     </div>
                 ))}
-                <button className='button' onClick={onReset}>Start Again</button>
+                <button className='button-restart' onClick={onReset}>Start Again</button>
             </div>
 
         </>
