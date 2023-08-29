@@ -4,7 +4,7 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
 
     const cross = 'x';
     const circle = 'o';
-    var goCount = 0;
+
 
 
 
