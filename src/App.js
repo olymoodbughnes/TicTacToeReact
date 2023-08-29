@@ -27,12 +27,12 @@ function App() {
   const [player2, setPlayer2] = useState('ref_b');
 
 
-
+  //local storage for player stats
   const LOCAL_STORAGE_KEY2 = 'stats.point'
 
 
 
-
+  //handle click status, this changes the currently shown screen
   const handleClick = () => {
     setClicked(true);
     setShowNameScreen(true);
@@ -41,7 +41,7 @@ function App() {
   }
 
 
-
+  //this resets the player from the leaderboard screen to the beginning
   const handleResetClick = () => {
     setClicked(false);
     setShowLeaderboard(false);
@@ -66,7 +66,7 @@ function App() {
     }
   }, [leaderboard]);
 
-
+  //Handle the names that have been input and save them, move on to the next screen
   const handleNamesSet = (pl1, pl2) => {
     setPlayer1(pl1);
     setPlayer2(pl2);
@@ -74,18 +74,19 @@ function App() {
     setShowNameScreen(false);
   };
 
-
+  //When a game finishes, record stats
   const handleGameEnd = (winner, loser) => {
 
     const winnerPlayer = leaderboard.find(player => player.name === winner);
     const loserPlayer = leaderboard.find(player => player.name === loser);
 
     if (winnerPlayer) {
-
+      //increase player stats and recalculate score
       winnerPlayer.wins++;
       winnerPlayer.score = ((winnerPlayer.wins * 1000) - (winnerPlayer.losses * 500)) + (winnerPlayer.draws * 150)
 
     } else {
+      //if player isnt found, create and save to list
       setLeaderboard(prevLeaderboard => [
         ...prevLeaderboard,
         { id: uuidv4(), name: winner, wins: 1, losses: 0, draws: 0, score: 1000 },
@@ -95,17 +96,16 @@ function App() {
     }
 
     if (loserPlayer) {
-
+      //increase player stats and recalculate score
       loserPlayer.wins++;
       loserPlayer.score = ((loserPlayer.wins * 1000) - (loserPlayer.losses * 500)) + (loserPlayer.draws * 150)
 
     } else {
+      //if player isnt found, create and save to list
       setLeaderboard(prevLeaderboard => [
         ...prevLeaderboard,
         { id: uuidv4(), name: loser, wins: 0, losses: 1, draws: 0, score: 0 },
       ]);
-
-
     }
   }
 
@@ -116,11 +116,11 @@ function App() {
     const loserPlayer = leaderboard.find(player => player.name === loser);
 
     if (winnerPlayer) {
-
+      //increase player stats and recalculate score
       winnerPlayer.draws++;
       winnerPlayer.score = ((winnerPlayer.wins * 1000) - (winnerPlayer.losses * 500)) + (winnerPlayer.draws * 150)
     } else {
-
+      //if player isnt found, create and save to lists
       setLeaderboard(prevLeaderboard => [
         ...prevLeaderboard,
         { id: uuidv4(), name: winner, wins: 0, losses: 0, draws: 1 },
@@ -129,12 +129,12 @@ function App() {
     }
 
     if (loserPlayer) {
-
+      //increase player stats and recalculate score
       loserPlayer.draws++;
       loserPlayer.score = ((loserPlayer.wins * 1000) - (loserPlayer.losses * 500)) + (loserPlayer.draws * 150)
     } else {
 
-
+      //if player isnt found, create and save to list
       setLeaderboard(prevLeaderboard => [
         ...prevLeaderboard,
         { id: uuidv4(), name: loser, wins: 0, losses: 0, draws: 1 },

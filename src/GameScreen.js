@@ -16,11 +16,12 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
     const [currSymbol, setCurrentSymbol] = useState();
     const allBoxesClicked = Object.values(clicked).every(value => value);
 
+    //boxes logic
     const handleClick = (boxKey) => {
-
+        //if the box hasnt been clicked and the key is equal to b1, then modify accordingly
         if (!clicked.b1 && boxKey === 'b1') {
             if (currPlayer === player1) {
-
+                //decide which symbol to use depending on player active
                 setCurrentSymbol(cross);
                 setCurrentPlayer(player2);
                 setSymbolMap((oldState) => ({
@@ -268,7 +269,7 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
     };
 
     useEffect(() => {
-
+        //check if any three in a row has been achieved
         checkRows();
 
     }, [clicked])
@@ -357,4 +358,3 @@ export default function GameScreen({ player1, player2, onGameCompleted }) {
     )
 }
 
-//123 456 789 741 852 963 159
