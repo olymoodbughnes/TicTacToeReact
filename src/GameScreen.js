@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './GameScreen.css';
-export default function GameScreen({ player1, player2 }) {
+export default function GameScreen({ player1, player2, onGameCompleted }) {
 
     const cross = 'x';
     const circle = 'o';
-
+    var goCount = 0;
 
 
 
@@ -14,7 +14,7 @@ export default function GameScreen({ player1, player2 }) {
     const [symbolMap, setSymbolMap] = useState({ b1: ' ', b2: ' ', b3: ' ', b4: ' ', b5: ' ', b6: ' ', b7: ' ', b8: ' ', b9: ' ' });
     const [currPlayer, setCurrentPlayer] = useState(player1);
     const [currSymbol, setCurrentSymbol] = useState();
-
+    const allBoxesClicked = Object.values(clicked).every(value => value);
 
     const handleClick = (boxKey) => {
 
@@ -285,6 +285,7 @@ export default function GameScreen({ player1, player2 }) {
         const bm = symbolMap.b8;
         const br = symbolMap.b9;
         var winningPlayer = '';
+        const noWinner = 'DRAW';
 
         if (currPlayer === player1) {
             winningPlayer = player2;
@@ -294,48 +295,26 @@ export default function GameScreen({ player1, player2 }) {
 
         }
         if ((tl === 'x' && tm === 'x' && tr === 'x') || (tl === 'o' && tm === 'o' && tr === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b1: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         }
         else if ((ml === 'x' && mm === 'x' && mr === 'x') || (ml === 'o' && mm === 'o' && mr === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b4: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         }
         else if ((bl === 'x' && bm === 'x' && br === 'x') || (bl === 'o' && bm === 'o' && br === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b7: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         }
         else if ((tl === 'x' && ml === 'x' && bl === 'x') || (tl === 'o' && ml === 'o' && bl === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b1: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         } else if ((tm === 'x' && mm === 'x' && bm === 'x') || (tm === 'o' && mm === 'o' && bm === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b2: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         } else if ((tr === 'x' && mr === 'x' && br === 'x') || (tr === 'o' && mr === 'o' && br === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b3: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         } else if ((bl === 'x' && mm === 'x' && tr === 'x') || (bl === 'o' && mm === 'o' && tr === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b5: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
         } else if ((br === 'x' && mm === 'x' && tl === 'x') || (br === 'o' && mm === 'o' && tl === 'o')) {
-            setSymbolMap((oldState) => ({
-                ...oldState,
-                b5: winningPlayer,
-            }));
+            onGameCompleted(winningPlayer);
+        } else if (allBoxesClicked) {
+            onGameCompleted(noWinner);
         }
 
 

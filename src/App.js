@@ -7,11 +7,21 @@ function App() {
 
 
   const [clicked, setClicked] = useState(false);
+  const [showGameScreen, setShowGameScreen] = useState(false);
+  const [winner, setWinner] = useState(null);
   const [player1, setPlayer1] = useState('uno');
   const [player2, setPlayer2] = useState('dos');
   const handleClick = () => {
     setClicked(true);
+    setShowGameScreen(true);
 
+  };
+
+
+
+  const handleGameComplete = (winner) => {
+    setWinner(winner);
+    setShowGameScreen(false);
 
   };
 
@@ -22,7 +32,6 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-
         <div className="main-content">
           <div className='navbar'>
             <article className='options'>
@@ -36,8 +45,9 @@ function App() {
             <div className='content-display'>
 
 
-              {!clicked ? <SplashScreen onClick={handleClick} /> : <GameScreen player1={player1} player2={player2} />}
-
+              {!clicked ? <SplashScreen onClick={handleClick} /> : null}
+              {showGameScreen ? <GameScreen player1={player1} player2={player2} onGameCompleted={handleGameComplete} /> : null}
+              {winner}
             </div>
           </div>
         </div>
